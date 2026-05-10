@@ -1,6 +1,6 @@
 
 {
-  "domain": "awsw_wordclock",
+  "domain": "awsw_wordclock_custom",
   "name": "AWSW WordClock Custom",
   "version": "1.5.5",
   "documentation": "https://github.com/Chromdioxyde/HA_AWSW_Wordclock",
