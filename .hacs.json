@@ -1,0 +1,6 @@
+{
+  "name": "AWSW WordClock Custom",
+  "content_in_root": false,
+  "domains": ["awsw_wordclock"],
+  "homeassistant": "2022.4"
+}
