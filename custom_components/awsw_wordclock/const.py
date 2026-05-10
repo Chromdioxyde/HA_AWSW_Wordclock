@@ -1,3 +1,2 @@
 
-DOMAIN = "awsw_wordclock"
-    
+DOMAIN = "awsw_wordclock_custom"
