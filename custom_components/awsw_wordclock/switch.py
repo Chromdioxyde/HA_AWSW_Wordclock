@@ -123,6 +123,7 @@ class WordClockExtraWordSwitch(SwitchEntity):
         self._is_on = False
         self._device_id = device_id
         self._session = session
+        self._color_rgb = (255, 255, 255)  # Default white
 
     @property
     def name(self):
@@ -156,10 +157,18 @@ class WordClockExtraWordSwitch(SwitchEntity):
         self.async_write_ha_state()
 
     async def _send_request(self, state):
-        url = f"http://{self._ip_address}:2023/ew/?ew{self._word_id}={state}"
+        """Send the on/off request with current color."""
+        r, g, b = self._color_rgb
+        url = f"http://{self._ip_address}:2023/ew/?ew{self._word_id}={state}&R={r}&G={g}&B={b}"
         try:
             async with self._session.get(url) as response:
                 if response.status != 200:
                     LOGGER.error("Failed to send request to %s, HTTP %d", url, response.status)
+                else:
+                    LOGGER.debug("Successfully sent request: %s", url)
         except Exception as e:
             LOGGER.error("Error sending request to %s: %s", url, e)
+
+    def set_color(self, rgb_color):
+        """Update the color for this extra word."""
+        self._color_rgb = rgb_color
