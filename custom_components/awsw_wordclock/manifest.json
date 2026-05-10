@@ -1,12 +1,12 @@
 
 {
-  "domain": "awsw_wordclock",
-  "name": "AWSW WordClock",
-  "version": "1.5.4",
-  "documentation": "https://github.com/bluenazgul/HA_AWSW_Wordclock",
+  "domain": "awsw_wordclock_custom",
+  "name": "AWSW WordClock Cusotm",
+  "version": "1.5.5",
+  "documentation": "https://github.com/Chromdioxyde/HA_AWSW_Wordclock",
   "requirements": [],
   "dependencies": [],
-  "codeowners": ["@bluenazgul"],
+  "codeowners": ["@Chromdioxyde"],
   "config_flow": true,
   "iot_class": "local_polling",
   "logo": "icon.svg"
