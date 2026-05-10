@@ -16,7 +16,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     # Register options update listener
     entry.add_update_listener(update_options)
 
-    await hass.config_entries.async_forward_entry_setups(entry, ["switch"])
+    await hass.config_entries.async_forward_entry_setups(entry, ["switch", "light"])
     return True
 
 async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
@@ -26,7 +26,7 @@ async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         if session:
             await session.close()
 
-        unload_ok = await hass.config_entries.async_unload_platforms(entry, ["switch"])
+        unload_ok = await hass.config_entries.async_unload_platforms(entry, ["switch", "light"])
         if unload_ok:
             hass.data[DOMAIN].pop(entry.entry_id)
         return unload_ok
